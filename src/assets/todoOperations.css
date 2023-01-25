@@ -1,0 +1,26 @@
+.todo-operations {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.todo-add {
+    background-color: #646ff0;
+    border-radius: 0.5rem;
+    padding: 0.5rem 1rem;
+    border-color: transparent;
+    color: #f9fafe;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.todo-select {
+    background-color: #cccdde;
+    border-radius: 0.5rem;
+    padding: 0.5rem 1rem;
+    border-color: transparent;
+    color: #676768;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
