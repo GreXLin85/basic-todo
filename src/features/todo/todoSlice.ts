@@ -6,6 +6,7 @@ interface TodoState {
         text: string
         isCompleted: boolean
     }[]
+    showMode: 'all' | 'completed' | 'not-completed'
 }
 
 // Define the initial state using that type
@@ -15,7 +16,8 @@ const initialState: TodoState = {
             text: 'Learn about actions',
             isCompleted: true
         }
-    ]
+    ],
+    showMode: 'all'
 }
 
 
@@ -52,12 +54,19 @@ export const todoSlice = createSlice({
             }
         }) => {
             state.todos.splice(action.payload.index, 1)
-        }
+        },
+        changeShowMode: (state, action: {
+            payload: {
+                showMode: 'all' | 'completed' | 'not-completed'
+            }
+        }) => {
+            state.showMode = action.payload.showMode
+        }            
     }
 })
 
 // Action creators are generated for each case reducer function
-export const { add, edit, toggleComplete, delete: deleteTodo } = todoSlice.actions
+export const { add, edit, toggleComplete, delete: deleteTodo,changeShowMode } = todoSlice.actions
 
 // Other code such as selectors can use the imported `RootState` type
 export const selectCount = (state: RootState) => state.todo.todos
