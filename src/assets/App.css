@@ -1,0 +1,15 @@
+.App {
+  text-align: center;
+}
+
+.todo-title {
+  color: #646681;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 2.5rem;
+}
+
+.todo-container {
+  margin: auto;
+  max-width: 30rem;
+}
