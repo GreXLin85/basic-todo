@@ -1,16 +1,18 @@
 import "../assets/todo.css"
 import { AiFillEdit, AiFillDelete, AiFillCloseCircle } from 'react-icons/ai';
 import { useDispatch } from "react-redux";
-import { deleteTodo, edit } from "../features/todo/todoSlice";
+import { deleteTodo, edit, toggleComplete } from "../features/todo/todoSlice";
 import { useState } from "react";
 
 export default function Todo(
     {
         todoText,
-        index
+        index,
+        isCompleted
     }: {
         todoText: string;
         index: number;
+        isCompleted: boolean;
     }) {
 
     const [isEdit, setIsEdit] = useState(false);
@@ -36,6 +38,13 @@ export default function Todo(
         }
     };
 
+    const completeTodoHandler = (isChecked: boolean) => {
+        dispatch(toggleComplete({
+            index,
+            isChecked
+        }));
+    };
+
     return (
         <div className="todo">
             <div className="todo-content">
@@ -43,7 +52,9 @@ export default function Todo(
                     setTodo(e.target.value);
                 }}/> : (
                     <>
-                        <input type="checkbox" className="todo-checkbox" />
+                        <input type="checkbox" className="todo-checkbox" checked={isCompleted} onChange={(e) => {
+                            completeTodoHandler(e.target.checked);
+                        }}/>
                         <p className="todo-text">{todoText}</p>
                     </>
                 )}

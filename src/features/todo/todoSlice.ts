@@ -44,9 +44,10 @@ export const todoSlice = createSlice({
         toggleComplete: (state, action: {
             payload: {
                 index: number
+                isChecked: boolean
             }
         }) => {
-            state.todos[action.payload.index].isCompleted = !state.todos[action.payload.index].isCompleted
+            state.todos[action.payload.index].isCompleted = action.payload.isChecked
         },
         delete: (state, action: {
             payload: {
