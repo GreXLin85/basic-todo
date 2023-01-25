@@ -1,4 +1,5 @@
 import "../assets/todo.css"
+import { AiFillEdit, AiFillDelete } from 'react-icons/ai';
 
 export default function Todo(
     {
@@ -14,10 +15,10 @@ export default function Todo(
             </div>
             <div className="todo-buttons">
                 <button className="todo-button">
-                    Remove
+                    <AiFillDelete />
                 </button>
                 <button className="todo-button">
-                    Edit
+                    <AiFillEdit />
                 </button>
             </div>
         </div>
